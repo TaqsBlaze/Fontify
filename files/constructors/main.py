@@ -41,8 +41,11 @@ class MainWindow(QMainWindow):
             with open(f"files{os.sep}resources{os.sep}.config{os.sep}.pswd","r") as content:
                 self.auth = content.read()
         except FileNotFoundError:
-            notification.pass_message("You need to setup your password first")
+            with open(f"files{os.sep}.notif","w") as content:
+                content.write("You need to configure your password first!\nClick Ok to configure your password")
+            
             notification.ui.show()
+
             # pass
 
     def bug_report(self):

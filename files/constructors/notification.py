@@ -15,20 +15,22 @@ class Notification(QDialog):
         uic.loadUi(f"files{os.sep}resources{os.sep}ui{os.sep}notifications.ui",self)
         self.message = self.findChild(QLabel, "messageLabel")
         self.ok_button = self.findChild(QPushButton, "okButton")
-        self.message.setText('')
+        # self.message.setText('')
         self.ok_button.clicked.connect(self.open_password_config)
 
-    def set_message(self,message):
-        self.message.setText(message)
+        try:
+            with open(f"files{os.sep}.notif","r") as content:
+                notif = content.read()
+
+                self.message.setText(notif)
+                os.system(f"rm files{os.sep}.notif")
+        except FileNotFoundError:
+            pass 
 
     def open_password_config(self):
 
         configure.ui.show()
         self.destroy()
-
-
-def pass_message(message):
-    Notification().set_message(message)
 
 
 
