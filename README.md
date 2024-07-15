@@ -1,6 +1,7 @@
 # Fontify
 
 **Font installer for linux**
+![alt text](https://github.com/TaqsBlaze/fontify/blob/main/files/resources/screenshot.png)
 --
 
 **Font Installer**
@@ -47,3 +48,5 @@ If you'd like to contribute to Font Installer, please fork the repository and su
 Font Installer is licensed under the MIT License. See [LICENSE](LICENSE) for details.
 
 I hope this helps! Let me know if you need any further assistance.
+
+developed with Love
