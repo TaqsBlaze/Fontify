@@ -1,7 +1,7 @@
 # Fontify
 
 **Font installer for linux**
-![alt text](https://github.com/TaqsBlaze/fontify/blob/main/files/resources/screenshot.png)
+![alt text](https://github.com/TaqsBlaze/Fontify/blob/main/files/resources/Screenshot.png)
 --
 
 **Font Installer**
