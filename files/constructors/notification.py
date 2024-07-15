@@ -17,7 +17,7 @@ class Notification(QDialog):
         self.ok_button = self.findChild(QPushButton, "okButton")
         # self.message.setText('')
         self.ok_button.clicked.connect(self.open_password_config)
-
+        self.message.setStyleSheet("font-size: 10pt")
         try:
             with open(f"files{os.sep}.notif","r") as content:
                 notif = content.read()
