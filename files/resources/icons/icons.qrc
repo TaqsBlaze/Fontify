@@ -1,0 +1,15 @@
+<RCC>
+  <qresource prefix="icons">
+    <file>info.png</file>
+    <file>backup.png</file>
+    <file>beetle.png</file>
+    <file>check.png</file>
+    <file>cloud-computing.png</file>
+    <file>error.png</file>
+    <file>failure.png</file>
+    <file>no-wifi.png</file>
+    <file>shield.png</file>
+    <file>system-update.png</file>
+    <file>type.png</file>
+  </qresource>
+</RCC>
