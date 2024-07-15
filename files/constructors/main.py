@@ -57,10 +57,6 @@ class MainWindow(QMainWindow):
         #Backup system font
         backup.ui.show()
 
-    def install_font(self):
-        #installing font into system fonts
-        pass
-
     def get_font(self):
         #File dialog for opening font file location
         open_dir =  os.path.expanduser('~') + f"{os.sep}Downloads"
