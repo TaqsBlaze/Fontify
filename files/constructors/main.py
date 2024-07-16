@@ -1,9 +1,9 @@
-import PyQt5
-from PyQt5.QtWidgets import QLabel, QFileDialog, QPushButton, QApplication, QWidget, QMainWindow, QFrame, QLineEdit
+import PyQt5.sip
+from PyQt5.QtWidgets import QLabel, QFileDialog, QPushButton, QApplication, QWidget, QMainWindow, QLineEdit
 from PyQt5.QtGui import QFont, QFontDatabase
 from PyQt5 import uic
 from PyQt5.QtCore import QUrl
-from files.constructors import about
+from files.constructors import about, setversion
 from files.constructors import bugreport
 from files.constructors import backup
 from files.constructors import notification
@@ -26,15 +26,16 @@ class MainWindow(QMainWindow):
         self.install = self.findChild(QPushButton, "installButton")
         self.brows_fonts = self.findChild(QPushButton,"openDialog")
         self.message = self.findChild(QLabel, "messageLabel")
+        self.version_label = self.findChild(QLabel, "versionlabel")
         self.message.setText('')
         self.brows_fonts.clicked.connect(self.get_font)
         self.install.clicked.connect(self.install_font)
-
         self.display1 = self.findChild(QLabel, "display1")
         self.display2 = self.findChild(QLabel, "display2")
         self.display3 = self.findChild(QLabel, "display3")
-
         self.displays = [self.display1,self.display2,self.display3]
+        setversion.Version(self.version_label).set()
+
 
         try:
             #setting sudo password
@@ -43,15 +44,13 @@ class MainWindow(QMainWindow):
         except FileNotFoundError:
             with open(f"files{os.sep}.notif","w") as content:
                 content.write("You need to configure your password first!\nClick Ok to configure your password")
-            
-            notification.ui.show()
+                notification.ui.show()
 
             # pass
 
     def bug_report(self):
         #Send a bug report
         bugreport.ui.show()
-        pass
 
     def backup_window(self):
         #Backup system font
@@ -69,6 +68,7 @@ class MainWindow(QMainWindow):
         font_sizes = "21pt 30pt 48pt".split()
         index = 0
         for display in self.displays:
+            #Font preview
             display.setFont(font)
             display.setStyleSheet(f"font-size: {font_sizes[index]}")
             if index == 1:
@@ -82,7 +82,6 @@ class MainWindow(QMainWindow):
 
     def install_font(self):
         #Installing font
-
         if self.font_suply.text() != '':
 
             try:
@@ -92,6 +91,11 @@ class MainWindow(QMainWindow):
                 xcc = refresh.communicate(self.auth + '\n')
                 self.message.setText("Font was installed successfully..")
                 self.message.setStyleSheet("color:green")
+            except AttributeError:
+                message = "Please configure your password"
+                with open(f"files{os.sep}.notif","w") as content:
+                    content.write(message)
+                    notification.ui.show()
             except Exception as error:
                 self.message.setText(f"Failed to install font \n{error}")
                 self.message.setStyleSheet("color:red")

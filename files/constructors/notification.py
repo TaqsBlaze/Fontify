@@ -25,6 +25,7 @@ class Notification(QDialog):
                 self.message.setText(notif)
                 os.system(f"rm files{os.sep}.notif")
         except FileNotFoundError:
+            self.message.setText("System error: Notification source not found")
             pass 
 
     def open_password_config(self):
