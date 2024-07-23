@@ -44,7 +44,8 @@ class MainWindow(QMainWindow):
         except FileNotFoundError:
             with open(f"files{os.sep}.notif","w") as content:
                 content.write("You need to configure your password first!\nClick Ok to configure your password")
-                notification.ui.show()
+                notification.notification_message = "You need to configure password"
+                notification.ui().show()
 
             # pass
 

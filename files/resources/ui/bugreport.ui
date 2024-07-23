@@ -36,7 +36,7 @@
    <item>
     <widget class="QFrame" name="frame">
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(255, 255, 255);</string>
+      <string notr="true">background-color: rgb(43, 41, 41);</string>
      </property>
      <property name="frameShape">
       <enum>QFrame::NoFrame</enum>
@@ -104,6 +104,9 @@
              <bold>true</bold>
             </font>
            </property>
+           <property name="styleSheet">
+            <string notr="true">color: rgb(255, 255, 255);</string>
+           </property>
            <property name="text">
             <string>Report Bugs</string>
            </property>
@@ -123,6 +126,11 @@
         <layout class="QVBoxLayout" name="verticalLayout_3">
          <item>
           <widget class="QFrame" name="frame_4">
+           <property name="styleSheet">
+            <string notr="true">QLabel{
+	color:white;
+}</string>
+           </property>
            <property name="frameShape">
             <enum>QFrame::NoFrame</enum>
            </property>
@@ -131,7 +139,11 @@
            </property>
            <layout class="QGridLayout" name="gridLayout">
             <item row="0" column="1">
-             <widget class="QLineEdit" name="email"/>
+             <widget class="QLineEdit" name="email">
+              <property name="styleSheet">
+               <string notr="true">color: rgb(154, 153, 150);</string>
+              </property>
+             </widget>
             </item>
             <item row="0" column="0">
              <widget class="QLabel" name="label_3">
@@ -177,6 +189,9 @@
         <layout class="QVBoxLayout" name="verticalLayout_4">
          <item>
           <widget class="QTextEdit" name="message">
+           <property name="styleSheet">
+            <string notr="true">color: rgb(154, 153, 150);</string>
+           </property>
            <property name="placeholderText">
             <string>Describe the issue here...</string>
            </property>
@@ -228,7 +243,7 @@ color: rgb(255, 255, 255);</string>
  </widget>
  <resources>
   <include location="../icons/icons.qrc"/>
-  <include location="files/resources/icons/icons.qrc"/>
+  <include location="../icons/icons.qrc"/>
  </resources>
  <connections/>
 </ui>
