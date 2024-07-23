@@ -1,2 +1,4 @@
 PyQt5
 requests
+flake8
+pytest
