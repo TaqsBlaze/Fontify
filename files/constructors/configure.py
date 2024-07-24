@@ -1,6 +1,5 @@
 import PyQt5
 from PyQt5.QtWidgets import QPushButton, QApplication, QWidget, QMainWindow, QDialog, QLineEdit
-from files.constructors import notification
 from PyQt5 import uic
 import os
 import sys
@@ -29,10 +28,13 @@ class ConfigureWindow(QDialog):
                 os.system(f"mkdir files{os.sep}resources{os.sep}.config")
                 with open(f"files{os.sep}resources{os.sep}.config{os.sep}.pswd","w") as contents:
                     contents.write(self.password.text())
+                self.destroy()
         else:
+            
             message = "Password can not be empty"
             with open(f"files{os.sep}.notif","w") as content:
                 content.write(message)
+            from files.constructors import notification
             notification.ui.show()
             print("sudo password can not be empty")
 

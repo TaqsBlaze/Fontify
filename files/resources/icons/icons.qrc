@@ -1,5 +1,13 @@
 <RCC>
   <qresource prefix="icons">
+    <file>themes-white.png</file>
+    <file>theme-white.png</file>
+    <file>switch-off-white.png</file>
+    <file>switch-on-white.png</file>
+    <file>switch-off.png</file>
+    <file>switch-on.png</file>
+    <file>theme.png</file>
+    <file>themes.png</file>
     <file>info.png</file>
     <file>backup.png</file>
     <file>beetle.png</file>

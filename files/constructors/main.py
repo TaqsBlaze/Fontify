@@ -6,7 +6,7 @@ from PyQt5.QtCore import QUrl
 from files.constructors import about, setversion
 from files.constructors import bugreport
 from files.constructors import backup
-from files.constructors import notification
+
 from files.resources.icons import icons
 from subprocess import Popen, PIPE
 import sys
@@ -44,8 +44,9 @@ class MainWindow(QMainWindow):
         except FileNotFoundError:
             with open(f"files{os.sep}.notif","w") as content:
                 content.write("You need to configure your password first!\nClick Ok to configure your password")
-                notification.notification_message = "You need to configure password"
-                notification.ui().show()
+
+            from files.constructors import notification
+            notification.ui.show()
 
             # pass
 
@@ -96,7 +97,9 @@ class MainWindow(QMainWindow):
                 message = "Please configure your password"
                 with open(f"files{os.sep}.notif","w") as content:
                     content.write(message)
-                    notification.ui.show()
+                    
+                from files.constructors import notification
+                notification.ui.show()
             except Exception as error:
                 self.message.setText(f"Failed to install font \n{error}")
                 self.message.setStyleSheet("color:red")
