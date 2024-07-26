@@ -624,7 +624,7 @@ color: rgb(255, 255, 255);</string>
  </widget>
  <resources>
   <include location="../icons/icons.qrc"/>
-  <include location="../../../../../../.designer/icons/icons.qrc"/>
+  <include location="../icons/icons.qrc"/>
  </resources>
  <connections/>
 </ui>
